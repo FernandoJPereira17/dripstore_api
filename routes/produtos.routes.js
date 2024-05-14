@@ -6,7 +6,9 @@ export const produtoRoute = (app) => {
     const route = express.Router()
 
     route.get('/', produtoService.getALL);
+    route.get('/:id', produtoService.getById)
 
     app.use('/api/produto', route);
+    app.use('/api/produto/:id', route);
 
 }
