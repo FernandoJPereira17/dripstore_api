@@ -7,8 +7,11 @@ export const produtoRoute = (app) => {
 
     route.get('/', produtoService.getALL);
     route.get('/:id', produtoService.getById)
+    route.post('/', produtoService.create)
+    route.put('/', produtoService.atualizarProduto)
 
     app.use('/api/produto', route);
-    app.use('/api/produto/:id', route);
+    // app.use('/api/produto/:id', route);
+    
 
 }

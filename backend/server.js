@@ -9,6 +9,11 @@ const PORT = 5000
 
 connection();
 
+//Converte o valor recebido via body na requisição...
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
     res.send({
         message:"Servidor Rodando...",
