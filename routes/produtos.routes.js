@@ -18,3 +18,5 @@ export const produtoRoute = (app) => {
     // app.use('/api/produto/:id', route);
    
 }
+
+
