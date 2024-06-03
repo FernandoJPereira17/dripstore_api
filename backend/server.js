@@ -1,8 +1,11 @@
 import express from 'express'
+import cors from 'cors';
 import { connection } from './bd/bd.js';
 import { produtoRoute } from '../routes/produtos.routes.js';
 
 const app = express()
+
+app.use(cors());
 
 const HOST = 'localhost'
 const PORT = 5000

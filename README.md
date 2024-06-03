@@ -63,3 +63,4 @@ CREATE TABLE IF NOT EXISTS public.produtos
 
 select * from produtos;
 select * from produtos where id=1;
+    

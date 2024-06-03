@@ -73,7 +73,7 @@ export const produtoService = {
                     return res.status (404).json({message: `Produto id: ${id} atualizado com sucesso...`});
                 }
         } catch (error) {
-            return res.status(500).json({ message: "Erro ao Atualizar Produto", error: error.json });
+            return res.status(500).json({ message: "Erro ao Atualizar o Produto", error: error.message });
         }
         },
 
