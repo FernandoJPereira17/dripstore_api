@@ -5,7 +5,11 @@ import { produtoRoute } from '../routes/produtos.routes.js';
 
 const app = express()
 
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:5173',
+};
+
+app.use(cors(corsOptions))
 
 const HOST = 'localhost'
 const PORT = 5000
