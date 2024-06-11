@@ -1,7 +1,8 @@
 import express from 'express'
 import cors from 'cors';
 import { connection } from './bd/bd.js';
-import { produtoRoute } from '../routes/produtos.routes.js';
+import { sequelize } from './bd/database.js';
+import { routes } from '../routes/index.js';
 
 const app = express()
 
@@ -28,7 +29,9 @@ app.get('/', (req, res) => {
     })
 })
 
-produtoRoute(app);
+routes(app);
+// produtoRoute(app);
+// usuarioRoute(app);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port http://${HOST}:${PORT}`)

@@ -48,6 +48,20 @@ CREATE TABLE IF NOT EXISTS public.usuario
 	data_atualizacao timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 )
 
+CREATE TABLE IF NOT EXISTS public.perfil
+(
+    id SERIAL primary key,
+    nome varchar (255) NOT NULL,
+    codigo varchar (255) NOT NULL
+)
+
+CREATE TABLE IF NOT EXISTS public.usuario_perfil
+(
+    id SERIAL primary key,
+    id_usuario,
+    id_perfil
+)
+
 CREATE TABLE IF NOT EXISTS public.produtos
 (
     id integer NOT NULL DEFAULT nextval('produtos_id_seq'::regclass),
@@ -63,4 +77,8 @@ CREATE TABLE IF NOT EXISTS public.produtos
 
 select * from produtos;
 select * from produtos where id=1;
-    
+
+___________________________________________________________________________
+
+JWT - JSON WEB TOKEN
+

@@ -1,22 +1,26 @@
 import express from 'express'
 import { produtoService } from '../backend/services/produtos.services.js';
 
-export const produtoRoute = (app) => {
+const routerProduto =express.Router()
 
-    const route = express.Router()
+    routerProduto
+    .get('/', produtoService.getALL)
+    .get('/:id', produtoService.getById)
+    .post('/', produtoService.create)
 
-    route.get('/', produtoService.getALL);
-    route.get('/:id', produtoService.getById)
+    export default routerProduto;
 
-    route.get('/ativo/:ativo', produtoService.buscarPorAtivo)
+    // const route = express.Router()
 
-    route.post('/', produtoService.create)
-    route.put('/', produtoService.atualizarProduto)
-    route.delete('/:id', produtoService.deleteProduct)
+    // route.get('/', produtoService.getALL);
+    // route.get('/:id', produtoService.getById)
 
-    app.use('/api/produto', route);
-    // app.use('/api/produto/:id', route);
-   
-}
+    // route.get('/ativo/:ativo', produtoService.buscarPorAtivo)
 
+    // route.post('/', produtoService.create)
+    // route.put('/', produtoService.atualizarProduto)
+    // route.delete('/:id', produtoService.deleteProduct)
 
+    // app.use('/api/produto', route);
+    // // app.use('/api/produto/:id', route);
+// }
