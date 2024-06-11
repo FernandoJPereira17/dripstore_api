@@ -9,11 +9,11 @@ export const connection = async () => {
   }
 };
 
-// //Sincroniza a aplicação com o banco usando o sequelize
-// sequelize.sync({ force: true })
-//     .then(() => {
-//       console.log('[INFO] Drop e resincroiniza o db...');
-//     })
-//     .catch((error) => {
-//       console.log(`[ERROR] Erro ao sincronizar o db: ${error}`);
-//   });
+//Sincroniza a aplicação com o banco usando o sequelize
+sequelize.sync({ force: true })
+    .then(() => {
+      console.log('[INFO] Drop e resincroiniza o db...');
+    })
+    .catch((error) => {
+      console.log(`[ERROR] Erro ao sincronizar o db: ${error}`);
+  });

@@ -3,8 +3,10 @@ import { Usuario } from '../model/usuario.model.js';
 export const usuarioService = {
 
     getAll: async (req, res)=>{
+
         const usuarios = await Usuario.findAll();
         return res.status(200).json(usuarios);
+        
     },
     getById: async (req, res)=>{
 

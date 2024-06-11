@@ -12,7 +12,7 @@ export const Usuario = sequelize.define ('usuarios', {
         allowNull: false
     },
     senha: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.STRING,
         allowNull: false
     },
     data_cadastro: {
