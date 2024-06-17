@@ -1,39 +1,48 @@
-import { DataTypes } from 'sequelize';
-import { connection } from '../bd/bd.js';
-import { sequelize } from '../bd/database.js';
+import { DataTypes } from "sequelize";
+import { sequelize } from "../bd/database.js";
 
-export const Usuario = sequelize.define ('usuarios', {
-    nome:{
-        type: DataTypes.STRING,
-        allowNull: false
+export const Usuario = sequelize.define(
+  "usuario",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "O nome do usuário é obrigatório.",
+        },
+        notEmpty: {
+          msg: "O nome do usuário não pode estar vazio.",
+        },
+      },
     },
     email: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     senha: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     data_cadastro: {
-        //field: 'createdAt', --opcional...
-        type: DataTypes.DATE,
-        allowNull: false
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW, // Use Sequelize literal for current timestamp
     },
     data_atualizacao: {
-        //field: 'createdAt', --opcional...
-        type: DataTypes.DATE,
-        allowNull: false
-    }
-}, {
-    timestamps: true, // Add this line to enable the default timestamp columns
-    createdAt: 'data_cadastro', // Map 'createdAt' to 'data_cadastro'
-    updatedAt: false // Disable 'updatedAt' column if you don't need it
-},
-{
-    timestamps: true, // Add this line to enable the default timestamp columns
-    createdAt: 'data_atualizacao', // Map 'createdAt' to 'data_cadastro'
-    updatedAt: false // Disable 'updatedAt' column if you don't need it
-}
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW, // Use Sequelize literal for current timestamp
+    },
+  },
+  {
+    timestamps: false, // Disable Sequelize default timestamps
+    tableName: "usuario",
+  }
 );
-

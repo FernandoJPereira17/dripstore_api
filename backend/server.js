@@ -22,6 +22,23 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+export function initialPerfil() {
+    db.Perfil.create({
+      id: 1,
+      name: "usuario"
+    });
+  
+    Role.create({
+      id: 2,
+      name: "moderador"
+    });
+  
+    Role.create({
+      id: 3,
+      name: "admin"
+    });
+  }
+
 app.get('/', (req, res) => {
     res.send({
         message:"Servidor Rodando...",
@@ -36,3 +53,4 @@ routes(app);
 app.listen(PORT, () => {
   console.log(`Example app listening on port http://${HOST}:${PORT}`)
 })
+
