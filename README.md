@@ -22,6 +22,12 @@ Evita sql injection...
 Manuntenção...
 A nível de segurança...
 
+#Arquivo env... para teste
+
+PGHOST='ep-ancient-mouse-a5cwwz70-pooler.us-east-2.aws.neon.tech'
+PGDATABASE='dripstore_db'
+PGUSER='dripstore_db_owner'
+PGPASSWORD='YJevD5IGE2Qr'
 
 https://dontpad.com/dc_20234
 Teste do Recruit Day
@@ -81,4 +87,6 @@ select * from produtos where id=1;
 ___________________________________________________________________________
 
 JWT - JSON WEB TOKEN
+
+npm i bcryptjs -S
 

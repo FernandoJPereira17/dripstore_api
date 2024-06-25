@@ -15,6 +15,7 @@ app.use(cors(corsOptions))
 const HOST = 'localhost'
 const PORT = 5000
 
+//...
 connection();
 
 //Converte o valor recebido via body na requisição...
@@ -22,22 +23,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-export function initialPerfil() {
-    db.Perfil.create({
-      id: 1,
-      name: "usuario"
-    });
-  
-    Role.create({
-      id: 2,
-      name: "moderador"
-    });
-  
-    Role.create({
-      id: 3,
-      name: "admin"
-    });
-  }
+
 
 app.get('/', (req, res) => {
     res.send({
