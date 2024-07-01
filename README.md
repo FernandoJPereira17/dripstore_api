@@ -92,3 +92,19 @@ npm i bcryptjs -S
 
 //Token Teste...
 export const secret = "teste_dc";
+
+{
+    "nome": "Marilia",
+    "perfis": ["MOD"],
+    "email": "marilia@gmail.com",
+    "senha": "marimari78"
+}
+
+Resultado:
+
+{
+    "message": "Usuário cadastrado com sucesso!..."
+}
+
+Postman para teste no Postman: http://localhost:5000/api/auth/signup
+
