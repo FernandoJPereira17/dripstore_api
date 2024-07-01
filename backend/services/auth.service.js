@@ -4,8 +4,9 @@ const Usuario = db.usuario;
 const Perfil = db.perfil;
 
 import pkg from 'bcryptjs';
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import db from "../model/index.js";
+import { secret } from "../config/auth.config.js";
 const { hashSync, compareSync } = pkg;
 
 export const authService = {
@@ -43,7 +44,6 @@ export const authService = {
             });
     },
 
-
     /*   async (req, res) => {
             // Save User to Database
             Usuario.create({
@@ -77,6 +77,7 @@ export const authService = {
                 });
  */
     signin: async (req, res) => {
+        
         const usuario = await Usuario.findOne({
             where: {
                 nome: req.body.nome
@@ -85,7 +86,7 @@ export const authService = {
 
         try {
             if (!usuario) {
-                return res.status(404).send({ message: "User Not found." });
+                return res.status(404).send({ message: "Usuário não cadastrado...!" });
             }
 
             var passwordIsValid = compareSync(
@@ -96,16 +97,18 @@ export const authService = {
             if (!passwordIsValid) {
                 return res.status(401).send({
                     accessToken: null,
-                    message: "Invalid Password!"
+                    message: "Senha Inválida!"
                 });
             }
 
+            //Criar o Token a partir do jsonwebtoken e do secret...
             const token = jwt.sign({ id: usuario.id },
                 secret,
                 {
                     algorithm: 'HS256',
                     allowInsecureKeySizes: true,
                     expiresIn: 86400, // 24 hours
+
                 });
 
             var authorities = [];

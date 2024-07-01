@@ -90,3 +90,5 @@ JWT - JSON WEB TOKEN
 
 npm i bcryptjs -S
 
+//Token Teste...
+export const secret = "teste_dc";
