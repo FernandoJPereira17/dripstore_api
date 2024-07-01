@@ -7,7 +7,7 @@ const routerUsuario = express.Router()
     .get('/', usuarioService.getAll)
     .get('/:id', usuarioService.getById)
     
-    export default routerUsuario;
+export default routerUsuario;
 
 // export const usuarioRoute = (app) =>{
     
